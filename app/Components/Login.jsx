@@ -48,14 +48,11 @@ function Login({ setUser }) {
     window.confirmationResult
       .confirm(otp.current.value)
       .then(async (res) => {
-        const loggedInResponse = await fetch(
-          "https://happiebirthday.onrender.com/firebase",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(res),
-          }
-        );
+        const loggedInResponse = await fetch("api/firebase", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(res),
+        });
         const loggedIn = await loggedInResponse.json();
         console.log(loggedIn);
         const jwtToken = loggedIn.jwtAccess;

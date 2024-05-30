@@ -18,17 +18,14 @@ function Form() {
       nam: nam.current.value,
       mobile: user[1],
     };
-    const loggedInResponse = await fetch(
-      "https://happiebirthday.onrender.com/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${Cookies.get("jwt")}`,
-        },
-        body: JSON.stringify(data),
-      }
-    );
+    const loggedInResponse = await fetch("api/form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${Cookies.get("jwt")}`,
+      },
+      body: JSON.stringify(data),
+    });
     const loggedIn = await loggedInResponse.json();
     console.log(loggedIn);
     router.push("/");
