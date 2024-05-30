@@ -13,6 +13,7 @@ function Login({ setUser }) {
   function onCaptchVerify() {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
+        auth,
         "recaptcha-container",
         {
           size: "invisible",
@@ -20,8 +21,7 @@ function Login({ setUser }) {
             onSignup();
           },
           "expired-callback": () => {},
-        },
-        auth
+        }
       );
     }
   }
