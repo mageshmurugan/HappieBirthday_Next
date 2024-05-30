@@ -1,4 +1,4 @@
-import serviceAccount from "../../serviceAccountKey.json";
+import serviceAccount from "../../serviceAccounts.js";
 import jwt from "jsonwebtoken";
 import admin from "firebase-admin";
 import User from "@/model/users";
