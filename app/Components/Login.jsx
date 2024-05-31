@@ -35,6 +35,7 @@ function Login({ setUser }) {
 
     signInWithPhoneNumber(auth, formatPh, appVerifier)
       .then((confirmationResult) => {
+        // console.log(confirmationResult);
         window.confirmationResult = confirmationResult;
         setShowOTP(true);
         console.log("OTP sended successfully!");
@@ -44,10 +45,11 @@ function Login({ setUser }) {
       });
   }
 
-  function onOTPVerify() {
+  async function onOTPVerify() {
     window.confirmationResult
       .confirm(otp.current.value)
       .then(async (res) => {
+        //     console.log(res);
         const loggedInResponse = await fetch("api/firebase", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

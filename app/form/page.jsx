@@ -16,7 +16,7 @@ function Form() {
       email: email.current.value,
       date: date.current.value,
       nam: nam.current.value,
-      mobile: user[1],
+      mobile: Cookies.get("mob"),
     };
     const loggedInResponse = await fetch("api/form", {
       method: "POST",

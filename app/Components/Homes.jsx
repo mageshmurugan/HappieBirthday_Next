@@ -6,6 +6,8 @@ import Login from "./Login";
 import styles from "../page.module.css";
 
 function Homes() {
+  const router = useRouter();
+
   const [user, setUser] = useState(null);
   const [click, setClick] = useState(false);
   useEffect(() => {
@@ -16,7 +18,6 @@ function Homes() {
   //  console.log(`from home .....${user}`)
 
   function handleAutomate() {
-    const router = useRouter();
     router.push("/form");
   }
 
@@ -29,7 +30,7 @@ function Homes() {
           <h2>Automate Birthday Wishes</h2>
 
           {user && user[0].length >= 10 ? (
-            <button onClick={() => handleAutomate} className={styles.mybutton}>
+            <button onClick={handleAutomate} className={styles.mybutton}>
               Automate
             </button>
           ) : click ? (
